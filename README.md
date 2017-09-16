@@ -12,5 +12,5 @@
 		客户端(client):
 		
 			 1、从共享获取服务器端的pid
-			 2、将服务器端的pid 通过getpid()写入共享内存
-[!image](https://github.com/210843013/server_client/blob/master/server_client.gif)
+			 2、将服务器端的pid 通过getpid()写入共享
+![image](https://github.com/210843013/server_client/blob/master/server_client.gif)
