@@ -1,5 +1,6 @@
-# server client 之间的通信问题
-	
+# server client 
+                  客户端与服务器之间的通信
+		  
 			 1、创建共享内存
 			 2、将内存映射到地址中
 		
@@ -13,4 +14,4 @@
 		
 			 1、从共享获取服务器端的pid
 			 2、将服务器端的pid 通过getpid()写入共享
-![image](https://github.com/210843013/server_client/blob/master/server_client.gif)
+
