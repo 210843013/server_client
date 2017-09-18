@@ -64,7 +64,7 @@ int main()
 
    if(pid > 0)
     {
-     rcvbuff.type=100; 
+     rcvbuff.type=200; 
      while(1)
     {
      memset(rcvbuff.buff,0,124); 
