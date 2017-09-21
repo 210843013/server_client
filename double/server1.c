@@ -16,20 +16,17 @@ struct mybuf
     int pid;
     char buf[128];   
 };
- struct mybuf *p;
+
 void myfun(int signum)
 {
-    printf("服务器端收到客户端的数据：%s\n",p->buf);
-}
-void fun(int signum)
-{
-   return;
+    return ;
 }
 int main()
 {
   int shmid;
   int key;
   int pid;
+  struct mybuf *p;
   
    //创建共享内存 
   key = ftok("share.c",'a');
@@ -51,7 +48,6 @@ int main()
  
 
         //首先将进程映射到p
-        signal(11,fun);
         signal(SIGUSR2,myfun);
         p=(struct mybuf*)shmat(shmid,NULL,0);
       //失败返回
@@ -63,12 +59,13 @@ int main()
      //获取客户端的PID
      p->pid = getpid(); // 将写的pid写入共享内存 
      pause(); // 等待客户端读取服务器端的pid
-     pid=p->pid; 
+     pid=p->pid;  
       while(1)
         {
-           printf("服务器端开始写数据:\n");
+           printf("服务器端开始写数据:");
            fgets(p->buf,128,stdin);
            kill(pid,SIGUSR1);
+           pause(); 
         }
       
         shmdt(p);

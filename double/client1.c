@@ -16,16 +16,17 @@ struct mybuf
     int pid;
     char buf[128];
 };
-struct mybuf *p;
+
 void myfun(int signum)
 {
-     printf("客户端收到服务器端的数据：%s\n",p->buf);
+    return ;
 }
 int main()
 {
     int shmid;
     int key;
     int pid;
+    struct mybuf *p;
 
     //创建共享内存
     key = ftok("share.c",'a');
@@ -58,12 +59,13 @@ int main()
     //获取server的PID
     pid=p->pid; // 读服务器段的pid
     p->pid=getpid(); //将客户端的pid写入共享内存
-    kill(pid,11);
+    kill(pid,SIGUSR2);
+    printf("客户端等待接收来自服务器端的数据 > > > > >\n");
     while(1)
     {
-           printf("客户端开始写数据:\n");
-           fgets(p->buf,128,stdin);
-           kill(pid,SIGUSR2);
+        pause();  //等待服务器端写入数据
+        printf("客户端收到服务器端的数据：%s",p->buf);
+        kill(pid,SIGUSR2); //通知服务器可以
     }
 
     shmdt(p);
