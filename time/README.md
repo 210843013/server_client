@@ -1,5 +1,8 @@
+
 #简单的时间客户端和服务器端
-  
+
+
+
     client：
     
           1、创建一个IPv4(AF_INET)的字节流(SOCK_STREAM)套接字
