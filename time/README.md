@@ -3,7 +3,7 @@
 
 
 
-    client：
+     client：
     
     
           1、创建一个IPv4(AF_INET)的字节流(SOCK_STREAM)套接字
