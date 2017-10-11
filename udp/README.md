@@ -18,7 +18,7 @@
 	
                 rv=recvfrom(sockfd,buf1,100,0,(struct sockaddr*)&client,&length); 
 		
+		
 	# 4、发送
-	
                 sendto(sockfd,buf,strlen(buf),0,(struct sockaddr*)&client,length);
 		
