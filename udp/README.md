@@ -1,5 +1,8 @@
+
 #简单的udp协议
-            
+
+
+
             1、创建套接字
               
                 socket(AF_INET,SOCK_DGRAM,0)
